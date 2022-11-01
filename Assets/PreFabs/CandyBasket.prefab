@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 1174576391}
   - component: {fileID: 1174576392}
   - component: {fileID: 1860439439}
+  - component: {fileID: 1499387378}
   m_Layer: 11
   m_Name: CandyBasket
   m_TagString: PickUp
@@ -193,7 +194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1421739933
   m_SortingLayer: 3
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1552368229, guid: 3b96cff6345ba8941a3a5c8706c1b983, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,7 +253,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920519964074065230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -271,6 +272,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0618753, y: 1.6584036}
   m_EdgeRadius: 0
+--- !u!58 &1499387378
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920519964074065230}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.030058384, y: 0.8778129}
+  serializedVersion: 2
+  m_Radius: 0.82771546
 --- !u!1 &9069027681109659965
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,4 +371,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

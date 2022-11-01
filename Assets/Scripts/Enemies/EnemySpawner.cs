@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
     //m‰‰r‰ on montako vihollisia on peliss‰, hallinoidaan unityss‰
     public int enemiesOnGame;
 
+    public GameObject[] enemiesInScene;
+
     //access to player collider script where the difficult level changes
     public GameManager gameManager;
 
@@ -57,6 +59,17 @@ public class EnemySpawner : MonoBehaviour
 
         if (gameManager.difficultLevel == 2)
         {
+
+            enemiesInScene = GameObject.FindGameObjectsWithTag("Enemy");
+
+            for (int i = 0; i < enemiesInScene.Length; i++)
+            {
+                //Destroy(enemiesInScene[i]);
+                enemiesInScene[i].SetActive(false);
+                //Instantiate(smokeEffect, transform.position, transform.rotation);
+
+            }
+
             GameObject localEnemy = GetPooledObject();
 
             if (localEnemy != null)

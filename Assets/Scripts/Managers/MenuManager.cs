@@ -6,10 +6,13 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    //VARIABLE FOR LOGOS
+    //VARIABLE FOR TEXTS
     public GameObject logoText;
     public GameObject anykeyText;
-    public GameObject startImage;
+    public GameObject jamText;
+    public GameObject aboutText;
+    public GameObject helpText;
+
 
     //VARIABLES FOR BUTTONS
     public GameObject startButton;
@@ -19,8 +22,10 @@ public class MenuManager : MonoBehaviour
     public GameObject backButton;
     public GameObject quitButton;
 
+    //VARIABLES FOR IMAGES
     public GameObject fadeOutImage;
-    public GameObject fadeInImage;
+    public GameObject startImage;
+    public GameObject popupImage;
 
     //public ParticleSystem buttonEffects;
     public Animator myAnimator;
@@ -28,6 +33,8 @@ public class MenuManager : MonoBehaviour
     public GameManager gameManager;
     public AudioManager audioManager;
     public AudioSource myAudio;
+
+    public bool gameActive = false;
 
 
     // Start is called before the first frame update
@@ -46,7 +53,7 @@ public class MenuManager : MonoBehaviour
 
     public void Update()
     {
-        if(Input.anyKey)
+        if(Input.anyKey && !gameActive)
         {
             StartCoroutine(StartMenu());
         }
@@ -71,6 +78,11 @@ public class MenuManager : MonoBehaviour
         optionsButton.SetActive(false);
         aboutButton.SetActive(false);
         backButton.SetActive(true);
+        helpText.SetActive(true);
+        logoText.SetActive(false);
+        popupImage.SetActive(true);
+
+
     }
 
     public void OpenAbout()
@@ -80,6 +92,9 @@ public class MenuManager : MonoBehaviour
         optionsButton.SetActive(false);
         aboutButton.SetActive(false);
         backButton.SetActive(true);
+        aboutText.SetActive(true);
+        popupImage.SetActive(true);
+        logoText.SetActive(false);
     }
 
     public void Back()
@@ -89,6 +104,10 @@ public class MenuManager : MonoBehaviour
         optionsButton.SetActive(true);
         aboutButton.SetActive(true);
         backButton.SetActive(false);
+        aboutText.SetActive(false);
+        popupImage.SetActive(false);
+        logoText.SetActive(true);
+        helpText.SetActive(false);
     }
 
 
@@ -101,19 +120,18 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator StartMenu()
     {
-        //startButton.GetComponent<Animator>().SetTrigger("Pressed");
         startImage.GetComponent<Animator>().SetBool("Start",true);
-        //buttonEffects.Play();
         audioManager.PlayMenu(1);
+        gameActive = true;
         yield return new WaitForSeconds(0.5f);
         startButton.SetActive(false);
         anykeyText.SetActive(false);
-        logoText.SetActive(false);
         startImage.SetActive(false);
         quitButton.SetActive(true);
         playButton.SetActive(true);
         optionsButton.SetActive(true);
         aboutButton.SetActive(true);
+        jamText.SetActive(true);
 
     }
 

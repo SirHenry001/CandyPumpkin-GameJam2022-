@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     //ACCESS TO OTHER SCRIPTS
     public HealthScipt playerHealth;
     public PlayerController playerController;
+    public EnemySpawner enemySpawner;
 
     public Animator myAnimator1;
     public Animator myAnimator2;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
 
         playerHealth = GameObject.Find("Player").GetComponent<HealthScipt>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
 
         if(gameManager == null)
         {
@@ -104,5 +106,10 @@ public class GameManager : MonoBehaviour
         candyCollected += 10;
 
         ProgressBar.fillAmount = candyCollected * 0.01f;
+
+        if(candyCollected >= 100)
+        {
+            difficultLevel = 2;
+        }
     }
 }
