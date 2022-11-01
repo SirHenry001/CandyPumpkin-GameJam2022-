@@ -11,7 +11,8 @@ public class PauseScript : MonoBehaviour
     public GameObject quitButton;
     public GameObject backgroundImage;
 
-
+    public PlayerInput playerInput;
+    public PlayerController playerController;
 
     public void RetryGame()
     {
@@ -21,7 +22,8 @@ public class PauseScript : MonoBehaviour
 
     public void Start()
     {
-
+        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public void StartGame()
@@ -59,6 +61,8 @@ public class PauseScript : MonoBehaviour
             retryButton.SetActive(true);
             quitButton.SetActive(true);
             backgroundImage.SetActive(true);
+            playerInput.enabled = false;
+            playerController.enabled = false;
         }
 
         else
@@ -69,6 +73,8 @@ public class PauseScript : MonoBehaviour
             retryButton.SetActive(false);
             quitButton.SetActive(false);
             backgroundImage.SetActive(false);
+            playerInput.enabled = true;
+            playerController.enabled = true;
         }
     }
 }

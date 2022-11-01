@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     //PROGRESS BAR VARIABLES
     public Image ProgressBar;
 
+    public float candyCollected = 0;
+
+    public int difficultLevel = 1;
+
     //ACCESS TO OTHER SCRIPTS
     public HealthScipt playerHealth;
     public PlayerController playerController;
@@ -93,5 +97,12 @@ public class GameManager : MonoBehaviour
     public void FixedUpdate()
     {
         
+    }
+
+    public void FillCandy()
+    {
+        candyCollected += 10;
+
+        ProgressBar.fillAmount = candyCollected * 0.01f;
     }
 }

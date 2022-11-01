@@ -44,6 +44,9 @@ public class EnemyAi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //TARGET SPECEFIC GAMEOBJECT TO TARGET THAT ENEMY REACTS
+        target =  GameObject.Find("Player").transform;
+
         myRigidbody = GetComponent<Rigidbody2D>();
         //myAnimator = GetComponentInChildren<Animator>();
     }

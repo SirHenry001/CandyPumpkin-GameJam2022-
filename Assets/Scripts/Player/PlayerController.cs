@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public Animator myAnimator;
 
-    [SerializeField] bool canMove = true;
+    public bool canMove = true;
     [SerializeField] bool canHit = true;
     [SerializeField] bool canJump;
     
@@ -46,11 +46,21 @@ public class PlayerController : MonoBehaviour
 
     public float collectRadius = 0.5f;
 
+    //ACCESS TO OTHERT SCRIPTS
+    public GameManager gameManager;
+
 
     public void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
+
+
+    }
+
+    public void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void Update()
@@ -69,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump") && canCollect)
         {
             Destroy(itemToCollect);
+            gameManager.FillCandy();
         }
 
         //Jump();

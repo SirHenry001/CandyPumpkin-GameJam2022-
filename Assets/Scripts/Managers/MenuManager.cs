@@ -8,7 +8,8 @@ public class MenuManager : MonoBehaviour
 {
     //VARIABLE FOR LOGOS
     public GameObject logoText;
-    public GameObject logoImage;
+    public GameObject anykeyText;
+    public GameObject startImage;
 
     //VARIABLES FOR BUTTONS
     public GameObject startButton;
@@ -43,6 +44,14 @@ public class MenuManager : MonoBehaviour
         myAnimator = GameObject.Find("FadeOut").GetComponent<Animator>();
     }
 
+    public void Update()
+    {
+        if(Input.anyKey)
+        {
+            StartCoroutine(StartMenu());
+        }
+    }
+
     public void MainStart()
     {
         StartCoroutine(StartMenu());
@@ -57,7 +66,6 @@ public class MenuManager : MonoBehaviour
     public void OpenOptions()
     {
 
-        logoImage.SetActive(false);
         quitButton.SetActive(false);
         playButton.SetActive(false);
         optionsButton.SetActive(false);
@@ -67,7 +75,6 @@ public class MenuManager : MonoBehaviour
 
     public void OpenAbout()
     {
-        logoImage.SetActive(false);
         quitButton.SetActive(false);
         playButton.SetActive(false);
         optionsButton.SetActive(false);
@@ -77,8 +84,6 @@ public class MenuManager : MonoBehaviour
 
     public void Back()
     {
-        logoText.SetActive(true);
-        logoImage.SetActive(true);
         quitButton.SetActive(true);
         playButton.SetActive(true);
         optionsButton.SetActive(true);
@@ -96,13 +101,15 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator StartMenu()
     {
-        startButton.GetComponent<Animator>().SetTrigger("Pressed");
+        //startButton.GetComponent<Animator>().SetTrigger("Pressed");
+        startImage.GetComponent<Animator>().SetBool("Start",true);
         //buttonEffects.Play();
         audioManager.PlayMenu(1);
         yield return new WaitForSeconds(0.5f);
         startButton.SetActive(false);
-        logoText.SetActive(true);
-        logoImage.SetActive(true);
+        anykeyText.SetActive(false);
+        logoText.SetActive(false);
+        startImage.SetActive(false);
         quitButton.SetActive(true);
         playButton.SetActive(true);
         optionsButton.SetActive(true);
