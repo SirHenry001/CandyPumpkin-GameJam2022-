@@ -1,0 +1,11 @@
+Fonts:
+
+dafont.com
+october_crow
+scarville
+
+Assets:
+
+Music:
+
+Sound
