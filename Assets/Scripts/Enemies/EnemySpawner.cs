@@ -60,16 +60,6 @@ public class EnemySpawner : MonoBehaviour
         if (gameManager.difficultLevel == 2)
         {
 
-            enemiesInScene = GameObject.FindGameObjectsWithTag("Enemy");
-
-            for (int i = 0; i < enemiesInScene.Length; i++)
-            {
-                //Destroy(enemiesInScene[i]);
-                enemiesInScene[i].SetActive(false);
-                //Instantiate(smokeEffect, transform.position, transform.rotation);
-
-            }
-
             GameObject localEnemy = GetPooledObject();
 
             if (localEnemy != null)
@@ -78,6 +68,18 @@ public class EnemySpawner : MonoBehaviour
                 localEnemy.transform.rotation = (spawner[Random.Range(0, 6)].transform.rotation);
                 localEnemy.SetActive(true);
             }
+        }
+
+        if(gameManager.levelChange == true)
+        {
+            enemiesInScene = GameObject.FindGameObjectsWithTag("Enemy");
+
+            for (int i = 0; i < enemiesInScene.Length; i++)
+            {
+                enemiesInScene[i].SetActive(false);
+
+            }
+
         }
 
 

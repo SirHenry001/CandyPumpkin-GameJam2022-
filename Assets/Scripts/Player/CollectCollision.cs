@@ -13,8 +13,6 @@ public class CollectCollision : MonoBehaviour
         {
             playerController.canCollect = true;
             playerController.itemToCollect = collision.gameObject;
-
-            //collision.gameObject.transform.parent = transform;
         }
 
     }

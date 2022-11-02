@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c99fdfceb56265449a7b168199ae0dfb
+guid: caf47122c3bb55e4a848dd35aba89a64
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,112 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 768
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3eafa70c789fb77418f05ff5010f8a86
-      internalID: -556989539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 768
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f86603cb113b5a42ad54a7f042150fd
-      internalID: -904549888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d302d70931c6fc4a9bcdb88fced25e5
-      internalID: -201104984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 768
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c4880dd1be5af5439567df99b4c129b
-      internalID: -1276048429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 768
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21c7c6506d8d6a349bb95ba6ad4e354c
-      internalID: -37305493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_5
+      name: herra-kurpitsa-kuolema_0
       rect:
         serializedVersion: 2
         x: 0
@@ -260,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2dc8b65de1732d4f964ff975e5b946b
-      internalID: -260938326
+      spriteID: 166e92144d9504543a35904d1c696e1e
+      internalID: -1818724785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_6
+      name: herra-kurpitsa-kuolema_1
       rect:
         serializedVersion: 2
         x: 256
@@ -281,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6687f7d547a0e24bb3b079c510ac9de
-      internalID: 867728814
+      spriteID: aaaf9d5484b39fa4c88a87478bbf85fc
+      internalID: -93676242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_7
+      name: herra-kurpitsa-kuolema_2
       rect:
         serializedVersion: 2
         x: 512
@@ -302,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e141638c2827864cbfc9d574124d5a7
-      internalID: 1628455593
+      spriteID: 6f34b4d6ab18a494a8cd17a21191af0a
+      internalID: -1202272649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_8
+      name: herra-kurpitsa-kuolema_3
       rect:
         serializedVersion: 2
         x: 768
@@ -323,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5af3193715905164e8fe978eb0e117b0
-      internalID: -1793507987
+      spriteID: 5ec7029ac3220d34a8a845e57c285955
+      internalID: -1615951984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_9
+      name: herra-kurpitsa-kuolema_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -344,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3f7e9d66f5a204bb4253adb7a87b31
-      internalID: -469305217
+      spriteID: 4ab5acb0d331a4b4ea873cadaac21410
+      internalID: -996117995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_10
+      name: herra-kurpitsa-kuolema_5
       rect:
         serializedVersion: 2
         x: 0
@@ -365,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b395bfd01ceaf5419855a31c1677d3b
-      internalID: -134628729
+      spriteID: 71724d581ad206e429fe09955b480ca2
+      internalID: 131254629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_11
+      name: herra-kurpitsa-kuolema_6
       rect:
         serializedVersion: 2
         x: 256
@@ -386,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7bf8072354d7ef47aeb36ae540110d8
-      internalID: -615906
+      spriteID: b49c495fd6914184bb61abcd0b965f5d
+      internalID: 615080509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_12
+      name: herra-kurpitsa-kuolema_7
       rect:
         serializedVersion: 2
         x: 512
@@ -407,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a39645cfd547e704facb67e234cd8dd3
-      internalID: -1846417121
+      spriteID: 54488b7ba830fdd499cbfa43434eee51
+      internalID: -1574538966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_13
+      name: herra-kurpitsa-kuolema_8
       rect:
         serializedVersion: 2
         x: 768
@@ -428,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6fac7a68dce25448237bae2bbcae27
-      internalID: 1906792311
+      spriteID: f183393251586c446a075ff4aa3a2a51
+      internalID: 786162274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_14
+      name: herra-kurpitsa-kuolema_9
       rect:
         serializedVersion: 2
         x: 1024
@@ -449,14 +344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3b6e35a870675d4496aebaa48b76306
-      internalID: 2104100615
+      spriteID: 1cc83491243a57a429c7cf35790c7e81
+      internalID: 605319050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herra-kurpitsa-kavely_oikea_15
+      name: herra-kurpitsa-kuolema_10
       rect:
         serializedVersion: 2
         x: 0
@@ -470,8 +365,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3273e2cd8838fc14c8f1e8230e16ae8f
-      internalID: 1826762787
+      spriteID: 285cb0b7e0aba3b4e94548dd419cfb87
+      internalID: -320127930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: herra-kurpitsa-kuolema_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e942c151a5f05f242be791afe79733fa
+      internalID: -1876897288
       vertices: []
       indices: 
       edges: []
@@ -487,22 +403,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      herra-kurpitsa-kavely_oikea_11: -615906
-      herra-kurpitsa-kavely_oikea_13: 1906792311
-      herra-kurpitsa-kavely_oikea_2: -201104984
-      herra-kurpitsa-kavely_oikea_12: -1846417121
-      herra-kurpitsa-kavely_oikea_8: -1793507987
-      herra-kurpitsa-kavely_oikea_6: 867728814
-      herra-kurpitsa-kavely_oikea_7: 1628455593
-      herra-kurpitsa-kavely_oikea_4: -37305493
-      herra-kurpitsa-kavely_oikea_5: -260938326
-      herra-kurpitsa-kavely_oikea_3: -1276048429
-      herra-kurpitsa-kavely_oikea_15: 1826762787
-      herra-kurpitsa-kavely_oikea_14: 2104100615
-      herra-kurpitsa-kavely_oikea_9: -469305217
-      herra-kurpitsa-kavely_oikea_0: -556989539
-      herra-kurpitsa-kavely_oikea_1: -904549888
-      herra-kurpitsa-kavely_oikea_10: -134628729
+      herra-kurpitsa-kuolema_0: -1818724785
+      herra-kurpitsa-kuolema_6: 615080509
+      herra-kurpitsa-kuolema_8: 786162274
+      herra-kurpitsa-kuolema_1: -93676242
+      herra-kurpitsa-kuolema_5: 131254629
+      herra-kurpitsa-kuolema_2: -1202272649
+      herra-kurpitsa-kuolema_4: -996117995
+      herra-kurpitsa-kuolema_7: -1574538966
+      herra-kurpitsa-kuolema_11: -1876897288
+      herra-kurpitsa-kuolema_9: 605319050
+      herra-kurpitsa-kuolema_10: -320127930
+      herra-kurpitsa-kuolema_3: -1615951984
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

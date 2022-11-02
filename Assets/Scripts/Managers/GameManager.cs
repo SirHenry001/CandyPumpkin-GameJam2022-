@@ -17,14 +17,18 @@ public class GameManager : MonoBehaviour
 
     //PROGRESS BAR VARIABLES
     public Image ProgressBar;
+    public Image ProgressBar2;
 
     public float candyCollected = 0;
+    public float candyCollected2 = 0;
 
     public int difficultLevel = 1;
 
     //ACCESS TO OTHER SCRIPTS
     public HealthScipt playerHealth;
     public PlayerController playerController;
+    public MenuManager menuManager;
+    public PlayerInput playerInput;
     public EnemySpawner enemySpawner;
 
     public Animator myAnimator1;
@@ -32,6 +36,9 @@ public class GameManager : MonoBehaviour
     public Animator myAnimator3;
     public Animator myAnimator4;
     public Animator myAnimator5;
+
+    public bool levelChange;
+    public bool gameEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,8 @@ public class GameManager : MonoBehaviour
 
         playerHealth = GameObject.Find("Player").GetComponent<HealthScipt>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
 
         if(gameManager == null)
@@ -103,13 +112,55 @@ public class GameManager : MonoBehaviour
 
     public void FillCandy()
     {
-        candyCollected += 10;
+        
 
-        ProgressBar.fillAmount = candyCollected * 0.01f;
-
-        if(candyCollected >= 100)
+        if(difficultLevel == 1)
         {
-            difficultLevel = 2;
+
+            candyCollected += 10;
+            ProgressBar.fillAmount = candyCollected * 0.01f;
+
+            if (candyCollected >= 100)
+            {
+                candyCollected = 100;
+                difficultLevel = 0;
+                StartCoroutine(LevelChange());
+            }
+
+        }
+
+        if(difficultLevel == 2)
+        {
+            candyCollected2 += 10;
+
+            ProgressBar2.fillAmount = candyCollected2 * 0.01f;
+
+            if (candyCollected2 >= 100)
+            {
+                candyCollected2 = 100;
+                gameEnd = true;
+            }
+
         }
     }
+
+    public IEnumerator LevelChange()
+    {
+        levelChange = true;
+        menuManager.levelChangeImage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        playerController.xSpeed = 6f;
+        playerController.ySpeed = 3f;
+        playerController.isLevel1 = false;
+        playerController.enabled = false;
+        playerInput.enabled = false;
+        playerController.myRigidbody.velocity = Vector2.zero;
+        yield return new WaitForSeconds(4f);
+        levelChange = false;
+        difficultLevel = 2;
+        playerController.enabled = true;
+        playerInput.enabled = true;
+        menuManager.levelChangeImage.SetActive(false);
+    }
+
 }

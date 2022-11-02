@@ -13,6 +13,9 @@ public class MenuManager : MonoBehaviour
     public GameObject aboutText;
     public GameObject helpText;
 
+    //VARIABLES FOR CANVAS
+    public GameObject deadCanvas;
+    public GameObject winCanvas;
 
     //VARIABLES FOR BUTTONS
     public GameObject startButton;
@@ -26,29 +29,44 @@ public class MenuManager : MonoBehaviour
     public GameObject fadeOutImage;
     public GameObject startImage;
     public GameObject popupImage;
+    public GameObject levelChangeImage;
 
     //public ParticleSystem buttonEffects;
     public Animator myAnimator;
 
     public GameManager gameManager;
     public AudioManager audioManager;
+    public PlayerInput playerInput;
+    public PlayerController playerController;
     public AudioSource myAudio;
 
     public bool gameActive = false;
 
+    private void Awake()
+    {
+        fadeOutImage.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
 
+
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
         myAudio = audioManager.GetComponent<AudioSource>();
 
         fadeOutImage.SetActive(true);
         StartCoroutine(FadeOut());
 
         myAnimator = GameObject.Find("FadeOut").GetComponent<Animator>();
+
+
+        myAnimator.SetBool("FadeIn", false);
+
     }
 
     public void Update()
@@ -123,6 +141,7 @@ public class MenuManager : MonoBehaviour
         startImage.GetComponent<Animator>().SetBool("Start",true);
         audioManager.PlayMenu(1);
         gameActive = true;
+        fadeOutImage.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         startButton.SetActive(false);
         anykeyText.SetActive(false);
@@ -140,8 +159,32 @@ public class MenuManager : MonoBehaviour
         audioManager.PlayMenu(2);
         fadeOutImage.SetActive(true);
         myAnimator.SetBool("FadeIn", true);
+
+        print("läpi");
+
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Level1");
+    }
+
+
+    public IEnumerator DeadCanvas()
+    {
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0f;
+        deadCanvas.SetActive(true);
+        playerController.canMove = false;
+        playerInput.enabled = false;
+        playerController.enabled = false;
+    }
+
+    public IEnumerator WinCanvas()
+    {
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0f;
+        winCanvas.SetActive(true);
+        playerController.canMove = false;
+        playerInput.enabled = false;
+        playerController.enabled = false;
     }
 
     public void QuitGame()

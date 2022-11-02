@@ -13,6 +13,7 @@ public class PauseScript : MonoBehaviour
 
     public PlayerInput playerInput;
     public PlayerController playerController;
+    public MenuManager menuManager;
 
     public void RetryGame()
     {
@@ -24,6 +25,7 @@ public class PauseScript : MonoBehaviour
     {
         playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
     }
 
     public void StartGame()
@@ -77,4 +79,17 @@ public class PauseScript : MonoBehaviour
             playerController.enabled = true;
         }
     }
+
+    //FUNCTIONS TO DEAD % WIN CANVAS BELOW
+
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level1");
+        menuManager.deadCanvas.SetActive(false);
+        playerController.canMove = true;
+        playerInput.enabled = true;
+        playerController.enabled = true;
+    }
+
 }

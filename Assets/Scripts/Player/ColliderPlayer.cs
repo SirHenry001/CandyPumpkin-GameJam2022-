@@ -11,7 +11,6 @@ public class ColliderPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             print("osuma");
-            //collision.gameObject.SetActive(false);
         }
     }
 

@@ -7,5 +7,7 @@ scarville
 Assets:
 
 Music:
+Unity Asset Store:
+Spooky Soundtrack - T.C Edwards
 
 Sound

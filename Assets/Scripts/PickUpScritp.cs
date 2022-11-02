@@ -32,7 +32,7 @@ public class PickUpScritp : MonoBehaviour
     {
         collectTime += Time.deltaTime;
 
-        if (collectTime >= 4f)
+        if (collectTime >= 2.5f)
         {
             collectTime = 0;
             Instantiate(bird, birdSpawnPoint.transform.position, birdSpawnPoint.transform.rotation);

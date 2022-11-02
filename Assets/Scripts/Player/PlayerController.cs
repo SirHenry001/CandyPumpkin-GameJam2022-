@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
+    public GameObject character1;
+    public GameObject character2;
+
     //VARIABLES FOR INPUT
     public float horizontalMove;
     public float verticalMove;
     
     //VARIABLES FOR MOVEMENT
-    [SerializeField] private float xSpeed = 10f;
-    [SerializeField] private float ySpeed = 6f;
+    public float xSpeed = 10f;
+    public float ySpeed = 6f;
 
     //VARIABLES FOR JUMP
     public float radius = 0.1f;
@@ -26,11 +29,9 @@ public class PlayerController : MonoBehaviour
     public GameObject hitObject;
     public GameObject itemToCollect;
 
-    //public float gravityScale;
-    //public float jumpTimer;
-
     public Rigidbody2D myRigidbody;
     public Animator myAnimator;
+    public Animator myAnimator2;
 
     public bool canMove = true;
     [SerializeField] bool canHit = true;
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool facingRight = true;
 
     public bool canCollect;
+
+    //BOOLEANS TO CONTROL ANIMATIONS WITH DIFFERENT CHARACTERS IN SAME LEVEL
+    public bool isLevel1 = true;
 
     [Range(0, 1.0f)]
     [SerializeField] float movementSmooth = 0.5f;
@@ -54,22 +58,39 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
-
-
+        myAnimator2 = GameObject.Find("Character2").GetComponent<Animator>();
     }
 
     public void Start()
     {
+        canMove = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void Update()
     {
-        
+     
+        if(isLevel1 == true)
+        {
+            character1.SetActive(true);
+            character2.SetActive(false);
+            myAnimator.SetBool("Level1", true);
+        }
+
+        if (isLevel1 == false)
+        {
+            
+            character1.SetActive(false);
+            character2.SetActive(true);
+            myAnimator.SetBool("Level1", false);
+        }
+
+
+
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButtonDown("Fire1") && canHit == true)
+        if (Input.GetKeyDown(KeyCode.Return) && canHit == true)
         {
             myRigidbody.velocity = Vector2.zero;
             canMove = false;
@@ -82,15 +103,11 @@ public class PlayerController : MonoBehaviour
             gameManager.FillCandy();
         }
 
-        //Jump();
-
     }
 
     public void FixedUpdate()
     {
         Move(horizontalMove, verticalMove, false);
-
-        //canCollect = Physics2D.OverlapCircle(collectCollider.position, radius, layerMaskCollect);
 
     }
 
@@ -120,39 +137,13 @@ public class PlayerController : MonoBehaviour
         canHit = false;
         //hitObject.SetActive(true);
         myAnimator.SetTrigger("Hit");
+        myAnimator2.SetTrigger("Hit");
         yield return new WaitForSeconds(1f);
         canHit = true;
         //hitObject.SetActive(false);
         
         //myAnimator.SetBool("Attack", false);
         canMove = true;
-
-
-    }
-
-    public void Jump()
-    {
-        canJump = Physics2D.OverlapCircle(feet.position, radius, layerMask);
-
-        if(!canJump)
-        {
-            canMove = false;
-        }
-
-        else
-        {
-            canMove = true;
-        }
-
-        if(Input.GetButtonDown("Jump") && canJump == true)
-        {
-            myAnimator.SetTrigger("isJumping");
-        }
-
-        else
-        {
-            myAnimator.SetBool("Jumping", false);
-        }
 
 
     }
