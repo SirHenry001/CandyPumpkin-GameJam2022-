@@ -245,6 +245,7 @@ MonoBehaviour:
   power: 250
   time: 1
   collectTime: 0
+  resetTime: 0
   playerController: {fileID: 0}
 --- !u!61 &1860439439
 BoxCollider2D:
@@ -285,9 +286,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030058384, y: 0.8778129}
+  m_Offset: {x: 0.025009036, y: 0.5193058}
   serializedVersion: 2
-  m_Radius: 0.82771546
+  m_Radius: 0.68633264
 --- !u!1 &9069027681109659965
 GameObject:
   m_ObjectHideFlags: 0

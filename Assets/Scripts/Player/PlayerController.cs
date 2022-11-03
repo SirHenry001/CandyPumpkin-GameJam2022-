@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     public float xSpeed = 10f;
     public float ySpeed = 6f;
 
+    //SET PLAYER BOUNDARIES TO MOVE
+    public float maxX;
+    public float minX;
+    public float maxY;
+    public float minY;
+
     //VARIABLES FOR JUMP
     public float radius = 0.1f;
     public float jumpPower;
@@ -52,19 +58,38 @@ public class PlayerController : MonoBehaviour
 
     //ACCESS TO OTHERT SCRIPTS
     public GameManager gameManager;
+    public AudioManager audioManager;
+    public HealthScipt healthScript;
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "HitEnemy")
+        {
+            audioManager.PlayEnemy(0);
+            healthScript.Death();
+        }
+    }
 
     public void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
         myAnimator2 = GameObject.Find("Character2").GetComponent<Animator>();
+
     }
 
     public void Start()
     {
         canMove = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        healthScript = GetComponent<HealthScipt>();
+
+        gameManager.candyCollected = 0;
+        gameManager.candyCollected2 = 0;
+        gameManager.difficultLevel = 1;
+        gameManager.gameEnd = false;
     }
 
     public void Update()
@@ -92,6 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) && canHit == true)
         {
+            audioManager.PlayHero(1);
             myRigidbody.velocity = Vector2.zero;
             canMove = false;
             StartCoroutine(Hit());
@@ -99,6 +125,7 @@ public class PlayerController : MonoBehaviour
         
         if(Input.GetButtonDown("Jump") && canCollect)
         {
+            audioManager.PlayEffects(1);
             Destroy(itemToCollect);
             gameManager.FillCandy();
         }
@@ -107,7 +134,9 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
+        
         Move(horizontalMove, verticalMove, false);
+        PlayerBoundaries();
 
     }
 
@@ -152,5 +181,11 @@ public class PlayerController : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+    }
+
+    void PlayerBoundaries()
+    {
+        //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY));
     }
 }

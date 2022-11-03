@@ -416,7 +416,7 @@ TextureImporter:
       herra-kurpitsa-kuolema_10: -320127930
       herra-kurpitsa-kuolema_3: -1615951984
   spritePackingTag: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 

@@ -14,6 +14,7 @@ public class PauseScript : MonoBehaviour
     public PlayerInput playerInput;
     public PlayerController playerController;
     public MenuManager menuManager;
+    public GameManager gameManager;
 
     public void RetryGame()
     {
@@ -26,6 +27,7 @@ public class PauseScript : MonoBehaviour
         playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void StartGame()
@@ -85,6 +87,10 @@ public class PauseScript : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
+        gameManager.candyCollected = 0;
+        gameManager.candyCollected2 = 0;
+        gameManager.difficultLevel = 1;
+        gameManager.gameEnd = false;
         SceneManager.LoadScene("Level1");
         menuManager.deadCanvas.SetActive(false);
         playerController.canMove = true;

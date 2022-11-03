@@ -6,12 +6,16 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
+
+    public static MenuManager menuManager;
+
     //VARIABLE FOR TEXTS
     public GameObject logoText;
     public GameObject anykeyText;
     public GameObject jamText;
     public GameObject aboutText;
     public GameObject helpText;
+    public GameObject levelChangeText;
 
     //VARIABLES FOR CANVAS
     public GameObject deadCanvas;
@@ -35,16 +39,16 @@ public class MenuManager : MonoBehaviour
     public Animator myAnimator;
 
     public GameManager gameManager;
-    public AudioManager audioManager;
     public PlayerInput playerInput;
     public PlayerController playerController;
+    public AudioManager audioManager;
     public AudioSource myAudio;
 
     public bool gameActive = false;
 
     private void Awake()
     {
-        fadeOutImage.SetActive(true);
+        fadeOutImage.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -52,9 +56,9 @@ public class MenuManager : MonoBehaviour
     {
 
 
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();    
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         myAudio = audioManager.GetComponent<AudioSource>();
@@ -67,14 +71,40 @@ public class MenuManager : MonoBehaviour
 
         myAnimator.SetBool("FadeIn", false);
 
+
+
+        if (gameManager == null)
+        {
+            //gamemangeri ei tuhoudu scenejen välillä!!
+            DontDestroyOnLoad(gameObject);
+            menuManager = this;
+        }
+
+        else if (menuManager != null)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void Update()
     {
-        if(Input.anyKey && !gameActive)
+        // Create a temporary reference to the current scene.
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+
+        if (sceneName == "MenuScreen")
         {
-            StartCoroutine(StartMenu());
+            if (Input.anyKey && !gameActive)
+            {
+                audioManager.PlayEffects(1);
+                MainStart();
+            }
         }
+
+
     }
 
     public void MainStart()
@@ -99,6 +129,7 @@ public class MenuManager : MonoBehaviour
         helpText.SetActive(true);
         logoText.SetActive(false);
         popupImage.SetActive(true);
+        audioManager.PlayEffects(2);
 
 
     }
@@ -113,6 +144,7 @@ public class MenuManager : MonoBehaviour
         aboutText.SetActive(true);
         popupImage.SetActive(true);
         logoText.SetActive(false);
+        audioManager.PlayEffects(2);
     }
 
     public void Back()
@@ -126,6 +158,7 @@ public class MenuManager : MonoBehaviour
         popupImage.SetActive(false);
         logoText.SetActive(true);
         helpText.SetActive(false);
+        audioManager.PlayEffects(2);
     }
 
 
@@ -139,7 +172,6 @@ public class MenuManager : MonoBehaviour
     public IEnumerator StartMenu()
     {
         startImage.GetComponent<Animator>().SetBool("Start",true);
-        audioManager.PlayMenu(1);
         gameActive = true;
         fadeOutImage.SetActive(false);
         yield return new WaitForSeconds(0.5f);
@@ -156,12 +188,9 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator OpenLevelDelay()
     {
-        audioManager.PlayMenu(2);
+        audioManager.PlayEffects(2);
         fadeOutImage.SetActive(true);
         myAnimator.SetBool("FadeIn", true);
-
-        print("läpi");
-
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Level1");
     }
@@ -169,22 +198,28 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator DeadCanvas()
     {
-        yield return new WaitForSeconds(3f);
-        Time.timeScale = 0f;
+        playerController.myRigidbody.velocity = Vector2.zero;
         deadCanvas.SetActive(true);
         playerController.canMove = false;
         playerInput.enabled = false;
         playerController.enabled = false;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
+
     }
 
     public IEnumerator WinCanvas()
     {
-        yield return new WaitForSeconds(3f);
-        Time.timeScale = 0f;
-        winCanvas.SetActive(true);
+        playerController.myAnimator.SetTrigger("End");
+        playerController.myAnimator2.SetTrigger("End2");
+        playerController.myRigidbody.velocity = Vector2.zero;
         playerController.canMove = false;
         playerInput.enabled = false;
         playerController.enabled = false;
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0f;
+        winCanvas.SetActive(true);
+
     }
 
     public void QuitGame()

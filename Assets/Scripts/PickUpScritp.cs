@@ -12,6 +12,7 @@ public class PickUpScritp : MonoBehaviour
     public float power;
     public float time;
     public float collectTime;
+    public float resetTime;
 
     public PlayerController playerController;
 
@@ -32,10 +33,11 @@ public class PickUpScritp : MonoBehaviour
     {
         collectTime += Time.deltaTime;
 
-        if (collectTime >= 2.5f)
+        if (collectTime >= 1.5f)
         {
             collectTime = 0;
             Instantiate(bird, birdSpawnPoint.transform.position, birdSpawnPoint.transform.rotation);
+
         }
 
     }

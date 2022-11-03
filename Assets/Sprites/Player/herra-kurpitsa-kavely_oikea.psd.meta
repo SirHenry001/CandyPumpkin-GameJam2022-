@@ -504,7 +504,7 @@ TextureImporter:
       herra-kurpitsa-kavely_oikea_1: -904549888
       herra-kurpitsa-kavely_oikea_10: -134628729
   spritePackingTag: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 

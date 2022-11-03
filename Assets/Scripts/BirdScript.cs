@@ -49,7 +49,7 @@ public class BirdScript : MonoBehaviour
             transform.Translate(Vector2.up * fleeSpeed * Time.deltaTime);
             destroyTimer += Time.deltaTime;
 
-            if(destroyTimer >= 1.5f)
+            if(destroyTimer >= 1.3f)
             {
                 Destroy(gameObject);
             }

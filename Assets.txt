@@ -1,13 +1,13 @@
 Fonts:
-
 dafont.com
 october_crow
 scarville
-
-Assets:
 
 Music:
 Unity Asset Store:
 Spooky Soundtrack - T.C Edwards
 
-Sound
+SoundEffects:
+Deadly Kombat Free Version (Unity Asset Store)
+RPG_Essentials_Free (Unity Asset Store)
+JD Sherbert - Ultimate UI SFX PAck [FREE] (Unity Asset Store)

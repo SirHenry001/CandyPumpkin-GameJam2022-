@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if(gameManager.levelChange == true)
+        if(gameManager.levelChange == true || gameManager.gameEnd == true)
         {
             enemiesInScene = GameObject.FindGameObjectsWithTag("Enemy");
 

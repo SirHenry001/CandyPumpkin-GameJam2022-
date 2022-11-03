@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-    public static AudioManager audioManager;
+    //public static AudioManager audioManager;
 
     public AudioSource myAudio;
     public AudioClip[] menuSounds;
@@ -16,8 +16,10 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         myAudio = GetComponent<AudioSource>();
 
+        /*
         if ( audioManager == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -28,6 +30,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
     // Update is called once per frame
